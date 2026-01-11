@@ -3,353 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Technologies Syllabus Syntax Guide</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
+    <title>Tanzy Crochèa | Handmade with Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        /* --- BRAND COLORS BASED ON YOUR LOGO --- */
+        :root {
+            --primary-maroon: #591C28; /* The deep red from the text */
+            --accent-gold: #C29654;   /* The yarn color */
+            --bg-cream: #FFFBF5;      /* A soft background */
+            --text-dark: #333333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
             line-height: 1.6;
-            color: #333;
-            padding-bottom: 50px;
         }
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            position: fixed;
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif; /* Matches logo font style */
+            color: var(--primary-maroon);
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
             top: 0;
-            left: 0;
-            background-color: #f8f9fa;
-            padding-top: 20px;
-            border-right: 1px solid #ddd;
-            overflow-x: hidden;
+            z-index: 1000;
         }
-        .sidebar a {
-            padding: 10px 15px;
+
+        .logo-container {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-maroon);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Placeholder for your actual logo image */
+        .logo-img {
+            height: 50px; 
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
             text-decoration: none;
-            font-size: 16px;
-            color: #333;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        .cart-btn {
+            background-color: var(--primary-maroon);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(rgba(255,251,245,0.9), rgba(255,251,245,0.9)), url('https://images.unsplash.com/photo-1584992236310-6eddd724a4c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .btn-main {
+            background-color: var(--accent-gold);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            background-color: #b08545;
+        }
+
+        /* --- PRODUCT GRID --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .product-price {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
             display: block;
         }
-        .sidebar a:hover {
-            background-color: #ddd;
-        }
-        .main-content {
-            margin-left: 260px;
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            color: #2c3e50;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        .topic-block {
-            background: #fff;
-            border: 1px solid #e1e1e1;
+
+        .add-btn {
+            background-color: var(--primary-maroon);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
             border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            cursor: pointer;
+            width: 100%;
         }
-        pre {
-            background-color: #282c34;
-            color: #abb2bf;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-size: 14px;
+
+        .add-btn:hover {
+            background-color: #3d121b;
         }
-        code {
-            font-family: 'Consolas', 'Monaco', monospace;
-            background-color: transparent;
-            color: inherit;
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-maroon);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
         }
-        .tag { color: #e06c75; }
-        .attr { color: #d19a66; }
-        .val { color: #98c379; }
-        .comment { color: #5c6370; font-style: italic; }
-        .note {
-            background-color: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 0.9em;
+
+        /* --- WHATSAPP ORDER MODAL (Simple Checkout) --- */
+        .hidden { display: none; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Simplified for mobile example */
         }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <h3 style="padding-left: 15px; border:none;">Topic Navigation</h3>
-        <a href="#unit1-intro">Unit I: WWW Concepts</a>
-        <a href="#unit1-html">Unit I: HTML Overview</a>
-        <a href="#html-text">Text Formatting</a>
-        <a href="#html-media">Images & Sound</a>
-        <a href="#html-lists">Lists & Tables</a>
-        <a href="#html-forms">Forms & Maps</a>
-        <a href="#unit2-css">Unit II: CSS</a>
-        <a href="#unit2-bootstrap">Unit II: Bootstrap</a>
-    </div>
-
-    <div class="main-content">
-
-        <div class="jumbotron text-center">
-            <h1>Web Technologies Syntax Guide</h1>
-            <p>Complete syntax reference based on your Syllabus (Unit I & Unit II)</p>
+    <header>
+        <div class="logo-container">
+            <img src="610259053_17842079652674647_3165015919355232862_n.jpg" alt="Tanzy Crochèa Logo" class="logo-img">
+            <span>Tanzy Crochèa</span>
         </div>
-
-        <h2 id="unit1-intro">Unit I: World Wide Web Concepts</h2>
-        <div class="topic-block">
-            <h3>Concepts & Definitions</h3>
-            <p>These topics are conceptual, but here is how they relate to code structure:</p>
+        <nav>
             <ul>
-                <li><strong>Web Page:</strong> A single HTML document.</li>
-                <li><strong>Website:</strong> A collection of web pages linked together.</li>
-                <li><strong>Static Website:</strong> Content is fixed (HTML/CSS only). Content only changes when the code is edited.</li>
-                <li><strong>Dynamic Website:</strong> Content changes based on user interaction or database (PHP, Node.js, Python).</li>
-                <li><strong>Client-Side Scripting:</strong> Code runs in the browser (e.g., JavaScript).</li>
-                <li><strong>Server-Side Scripting:</strong> Code runs on the server (e.g., PHP, JSP, ASP.NET).</li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About Tanya</a></li>
             </ul>
+        </nav>
+        <a href="#contact" class="cart-btn" onclick="alert('Cart functionality coming soon!')">Cart (0)</a>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Handmade Elegance, <br>Stitched with Love.</h1>
+        <p>Discover unique crochet pieces crafted by Tanya Yadav.</p>
+        <a href="#shop" class="btn-main">Shop Collection</a>
+    </section>
+
+    <section class="container" id="shop">
+        <h2 class="section-title">Latest Creations</h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="file:///C:/Users/Administrator/Downloads/crochea.jpeg" alt="Crochet Muffler" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Crochet Muffler</h3>
+                    <span class="product-price">₹1,200</span>
+                    <button class="add-btn" onclick="orderOnWhatsapp('Crochet Muffler')">Order via WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1584992236310-6eddd724a4c7?auto=format&fit=crop&w=600&q=80" alt="Crochet Bag" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Sunflower Tote Bag</h3>
+                    <span class="product-price">₹850</span>
+                    <button class="add-btn" onclick="orderOnWhatsapp('Sunflower Tote Bag')">Order via WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1542060748-10c287222651?auto=format&fit=crop&w=600&q=80" alt="Amigurumi" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Cute Plushie</h3>
+                    <span class="product-price">₹500</span>
+                    <button class="add-btn" onclick="orderOnWhatsapp('Cute Plushie')">Order via WhatsApp</button>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <h2 id="unit1-html">Unit I: HTML Overview</h2>
+    <footer>
+        <h3>Tanzy Crochèa</h3>
+        <p>By Tanya Yadav</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">&copy; 2024 All Rights Reserved.</p>
+    </footer>
 
-        <div class="topic-block">
-            <h3>1. Document Structure & Comments</h3>
-            <p>The basic building block of any HTML page.</p>
-<pre><code><span class="comment">&lt;!-- This is an HTML Comment --&gt;</span>
-<span class="tag">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;html&gt;</span>
-    <span class="tag">&lt;head&gt;</span>
-        <span class="tag">&lt;title&gt;</span>Page Title<span class="tag">&lt;/title&gt;</span>
-    <span class="tag">&lt;/head&gt;</span>
-    <span class="tag">&lt;body&gt;</span>
-        Content goes here...
-    <span class="tag">&lt;/body&gt;</span>
-<span class="tag">&lt;/html&gt;</span></code></pre>
-        </div>
-
-        <div class="topic-block" id="html-text">
-            <h3>2. Text Formatting & Special Characters</h3>
-<pre><code><span class="comment">&lt;!-- Headings --&gt;</span>
-<span class="tag">&lt;h1&gt;</span>Heading 1<span class="tag">&lt;/h1&gt;</span> to <span class="tag">&lt;h6&gt;</span>Heading 6<span class="tag">&lt;/h6&gt;</span>
-
-<span class="comment">&lt;!-- Paragraphs & Breaks --&gt;</span>
-<span class="tag">&lt;p&gt;</span>This is a paragraph.<span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;br&gt;</span> <span class="comment">&lt;!-- Line break --&gt;</span>
-<span class="tag">&lt;hr&gt;</span> <span class="comment">&lt;!-- Horizontal Rule --&gt;</span>
-
-<span class="comment">&lt;!-- Formatting --&gt;</span>
-<span class="tag">&lt;b&gt;</span>Bold Text<span class="tag">&lt;/b&gt;</span> or <span class="tag">&lt;strong&gt;</span>Important Text<span class="tag">&lt;/strong&gt;</span>
-<span class="tag">&lt;i&gt;</span>Italic Text<span class="tag">&lt;/i&gt;</span> or <span class="tag">&lt;em&gt;</span>Emphasized<span class="tag">&lt;/em&gt;</span>
-<span class="tag">&lt;u&gt;</span>Underlined<span class="tag">&lt;/u&gt;</span>
-<span class="tag">&lt;sup&gt;</span>Superscript (x2)<span class="tag">&lt;/sup&gt;</span>
-<span class="tag">&lt;sub&gt;</span>Subscript (H2O)<span class="tag">&lt;/sub&gt;</span>
-
-<span class="comment">&lt;!-- Special Characters (Entities) --&gt;</span>
-Space: &amp;nbsp;
-Less than (&lt;): &amp;lt;
-Greater than (&gt;): &amp;gt;
-Ampersand (&amp;): &amp;amp;
-Copyright: &amp;copy;</code></pre>
-        </div>
-
-        <div class="topic-block" id="html-media">
-            <h3>3. Anchors, Images & Sound</h3>
-<pre><code><span class="comment">&lt;!-- Anchor Tag (Hyperlink) --&gt;</span>
-<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://google.com"</span> <span class="attr">target</span>=<span class="val">"_blank"</span><span class="tag">&gt;</span>Click Here<span class="tag">&lt;/a&gt;</span>
-
-<span class="comment">&lt;!-- Adding Images --&gt;</span>
-<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"image.jpg"</span> <span class="attr">alt</span>=<span class="val">"Description"</span> <span class="attr">width</span>=<span class="val">"100"</span><span class="tag">&gt;</span>
-
-<span class="comment">&lt;!-- Adding Sound (Audio) --&gt;</span>
-<span class="tag">&lt;audio</span> <span class="attr">controls</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="val">"music.mp3"</span> <span class="attr">type</span>=<span class="val">"audio/mpeg"</span><span class="tag">&gt;</span>
-    Your browser does not support the audio element.
-<span class="tag">&lt;/audio&gt;</span></code></pre>
-        </div>
-
-        <div class="topic-block" id="html-lists">
-            <h3>4. Lists & Tables</h3>
-<pre><code><span class="comment">&lt;!-- Unordered List (Bullets) --&gt;</span>
-<span class="tag">&lt;ul</span> <span class="attr">type</span>=<span class="val">"circle"</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;li&gt;</span>Item A<span class="tag">&lt;/li&gt;</span>
-    <span class="tag">&lt;li&gt;</span>Item B<span class="tag">&lt;/li&gt;</span>
-<span class="tag">&lt;/ul&gt;</span>
-
-<span class="comment">&lt;!-- Ordered List (Numbers/Letters) --&gt;</span>
-<span class="tag">&lt;ol</span> <span class="attr">type</span>=<span class="val">"I"</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;li&gt;</span>First<span class="tag">&lt;/li&gt;</span>
-    <span class="tag">&lt;li&gt;</span>Second<span class="tag">&lt;/li&gt;</span>
-<span class="tag">&lt;/ol&gt;</span>
-
-<span class="comment">&lt;!-- Definition List --&gt;</span>
-<span class="tag">&lt;dl&gt;</span>
-    <span class="tag">&lt;dt&gt;</span>HTML<span class="tag">&lt;/dt&gt;</span>
-    <span class="tag">&lt;dd&gt;</span>Hypertext Markup Language<span class="tag">&lt;/dd&gt;</span>
-<span class="tag">&lt;/dl&gt;</span>
-
-<span class="comment">&lt;!-- Tables --&gt;</span>
-<span class="tag">&lt;table</span> <span class="attr">border</span>=<span class="val">"1"</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;thead&gt;</span>
-        <span class="tag">&lt;tr&gt;</span> <span class="tag">&lt;th&gt;</span>Name<span class="tag">&lt;/th&gt;</span> <span class="tag">&lt;th&gt;</span>Age<span class="tag">&lt;/th&gt;</span> <span class="tag">&lt;/tr&gt;</span>
-    <span class="tag">&lt;/thead&gt;</span>
-    <span class="tag">&lt;tbody&gt;</span>
-        <span class="tag">&lt;tr&gt;</span> <span class="tag">&lt;td&gt;</span>John<span class="tag">&lt;/td&gt;</span> <span class="tag">&lt;td&gt;</span>25<span class="tag">&lt;/td&gt;</span> <span class="tag">&lt;/tr&gt;</span>
-    <span class="tag">&lt;/tbody&gt;</span>
-<span class="tag">&lt;/table&gt;</span></code></pre>
-        </div>
-
-        <div class="topic-block">
-            <h3>5. Frames & Floating Frames</h3>
-            <div class="note">Note: The <code>&lt;frame&gt;</code> and <code>&lt;frameset&gt;</code> tags are obsolete. The syllabus likely refers to <strong>Iframes (Floating Frames)</strong>.</div>
-<pre><code><span class="comment">&lt;!-- Floating Frame (iFrame) --&gt;</span>
-<span class="tag">&lt;iframe</span> <span class="attr">src</span>=<span class="val">"https://www.wikipedia.org"</span> <span class="attr">width</span>=<span class="val">"300"</span> <span class="attr">height</span>=<span class="val">"200"</span><span class="tag">&gt;</span>
-<span class="tag">&lt;/iframe&gt;</span></code></pre>
-        </div>
-
-        <div class="topic-block" id="html-forms">
-            <h3>6. Developing Forms</h3>
-<pre><code><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"/submit"</span> <span class="attr">method</span>=<span class="val">"POST"</span><span class="tag">&gt;</span>
-    <span class="comment">&lt;!-- Text Input --&gt;</span>
-    <span class="tag">&lt;label&gt;</span>Name:<span class="tag">&lt;/label&gt;</span>
-    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">name</span>=<span class="val">"username"</span> <span class="attr">placeholder</span>=<span class="val">"Enter name"</span><span class="tag">&gt;</span>
-
-    <span class="comment">&lt;!-- Radio Button --&gt;</span>
-    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"radio"</span> <span class="attr">name</span>=<span class="val">"gender"</span> <span class="attr">value</span>=<span class="val">"male"</span><span class="tag">&gt;</span> Male
-
-    <span class="comment">&lt;!-- Checkbox --&gt;</span>
-    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"checkbox"</span> <span class="attr">name</span>=<span class="val">"subscribe"</span><span class="tag">&gt;</span> Subscribe
-
-    <span class="comment">&lt;!-- Dropdown List --&gt;</span>
-    <span class="tag">&lt;select</span> <span class="attr">name</span>=<span class="val">"city"</span><span class="tag">&gt;</span>
-        <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="val">"delhi"</span><span class="tag">&gt;</span>Delhi<span class="tag">&lt;/option&gt;</span>
-        <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="val">"mumbai"</span><span class="tag">&gt;</span>Mumbai<span class="tag">&lt;/option&gt;</span>
-    <span class="tag">&lt;/select&gt;</span>
-
-    <span class="comment">&lt;!-- Textarea --&gt;</span>
-    <span class="tag">&lt;textarea</span> <span class="attr">rows</span>=<span class="val">"4"</span> <span class="attr">cols</span>=<span class="val">"50"</span><span class="tag">&gt;</span><span class="tag">&lt;/textarea&gt;</span>
-
-    <span class="comment">&lt;!-- Submit Button --&gt;</span>
-    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"submit"</span> <span class="attr">value</span>=<span class="val">"Send"</span><span class="tag">&gt;</span>
-<span class="tag">&lt;/form&gt;</span></code></pre>
-        </div>
-
-        <div class="topic-block">
-            <h3>7. Image Maps</h3>
-            <p>Making specific areas of an image clickable.</p>
-<pre><code><span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"planets.jpg"</span> <span class="attr">usemap</span>=<span class="val">"#planetmap"</span><span class="tag">&gt;</span>
-
-<span class="tag">&lt;map</span> <span class="attr">name</span>=<span class="val">"planetmap"</span><span class="tag">&gt;</span>
-    <span class="comment">&lt;!-- Rectangular area --&gt;</span>
-    <span class="tag">&lt;area</span> <span class="attr">shape</span>=<span class="val">"rect"</span> <span class="attr">coords</span>=<span class="val">"34,44,270,350"</span> <span class="attr">href</span>=<span class="val">"computer.htm"</span><span class="tag">&gt;</span>
-    <span class="comment">&lt;!-- Circular area --&gt;</span>
-    <span class="tag">&lt;area</span> <span class="attr">shape</span>=<span class="val">"circle"</span> <span class="attr">coords</span>=<span class="val">"337,300,44"</span> <span class="attr">href</span>=<span class="val">"coffee.htm"</span><span class="tag">&gt;</span>
-<span class="tag">&lt;/map&gt;</span></code></pre>
-        </div>
-
-        <h2 id="unit2-css">Unit II: Cascading Style Sheets (CSS)</h2>
-
-        <div class="topic-block">
-            <h3>1. Types of Style Sheets (Syntax)</h3>
-<pre><code><span class="comment">/* 1. Inline CSS (Inside the tag) */</span>
-<span class="tag">&lt;p</span> <span class="attr">style</span>=<span class="val">"color: red; font-size: 20px;"</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>
-
-<span class="comment">/* 2. Internal CSS (Inside &lt;head&gt;) */</span>
-<span class="tag">&lt;style&gt;</span>
-    p { color: blue; }
-<span class="tag">&lt;/style&gt;</span>
-
-<span class="comment">/* 3. External CSS (Linking a separate file) */</span>
-<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">type</span>=<span class="val">"text/css"</span> <span class="attr">href</span>=<span class="val">"styles.css"</span><span class="tag">&gt;</span></code></pre>
-        </div>
-
-        <div class="topic-block">
-            <h3>2. CSS Properties, Styling, and Selectors</h3>
-<pre><code><span class="tag">&lt;style&gt;</span>
-    <span class="comment">/* Tag Selector */</span>
-    <span class="tag">h1</span> {
-        color: green;         <span class="comment">/* Property: Value */</span>
-        text-align: center;
-    }
-
-    <span class="comment">/* ID Selector (Unique, uses #) */</span>
-    <span class="tag">#header</span> {
-        background-color: #f1f1f1;
-    }
-
-    <span class="comment">/* Class Selector (Multiple use, uses .) */</span>
-    <span class="tag">.error-msg</span> {
-        color: red;
-        font-weight: bold;
-    }
-
-    <span class="comment">/* Pseudo-Class (State of an element) */</span>
-    <span class="tag">a:hover</span> {
-        text-decoration: underline;
-        color: orange;
-    }
-<span class="tag">&lt;/style&gt;</span></code></pre>
-        </div>
-
-        <h2 id="unit2-bootstrap">Unit II: Bootstrap Basics</h2>
-        <div class="note">
-            <strong>Important:</strong> Your syllabus asks for "Glyphicons" and "Jumbotron". These are primarily <strong>Bootstrap 3</strong> components (Jumbotron existed in 4, but Glyphicons were removed in 4). The syntax below matches the specific keywords in your syllabus.
-        </div>
-
-        <div class="topic-block">
-            <h3>1. Linking Bootstrap</h3>
-<pre><code><span class="comment">&lt;!-- In &lt;head&gt; section --&gt;</span>
-<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"</span><span class="tag">&gt;</span>
-<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
-<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></code></pre>
-        </div>
-
-        <div class="topic-block">
-            <h3>2. Container & Grids</h3>
-<pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"container"</span><span class="tag">&gt;</span> <span class="comment">&lt;!-- Fixed width container --&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"row"</span><span class="tag">&gt;</span>
-        <span class="comment">&lt;!-- Grid system (Total 12 columns) --&gt;</span>
-        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"col-sm-4"</span><span class="tag">&gt;</span>Column 1 (Span 4)<span class="tag">&lt;/div&gt;</span>
-        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"col-sm-4"</span><span class="tag">&gt;</span>Column 2 (Span 4)<span class="tag">&lt;/div&gt;</span>
-        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"col-sm-4"</span><span class="tag">&gt;</span>Column 3 (Span 4)<span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;/div&gt;</span>
-<span class="tag">&lt;/div&gt;</span></code></pre>
-        </div>
-
-        <div class="topic-block">
-            <h3>3. Components (Tables, Images, Buttons, Jumbotron)</h3>
-<pre><code><span class="comment">&lt;!-- Jumbotron (Big announcement box) --&gt;</span>
-<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"jumbotron"</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;h1&gt;</span>Welcome!<span class="tag">&lt;/h1&gt;</span>
-    <span class="tag">&lt;p&gt;</span>This is a jumbotron.<span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;/div&gt;</span>
-
-<span class="comment">&lt;!-- Bootstrap Table --&gt;</span>
-<span class="tag">&lt;table</span> <span class="attr">class</span>=<span class="val">"table table-striped table-bordered"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/table&gt;</span>
-
-<span class="comment">&lt;!-- Responsive Image --&gt;</span>
-<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"pic.jpg"</span> <span class="attr">class</span>=<span class="val">"img-responsive img-rounded"</span><span class="tag">&gt;</span>
-
-<span class="comment">&lt;!-- Buttons --&gt;</span>
-<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary"</span><span class="tag">&gt;</span>Primary Button<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-success"</span><span class="tag">&gt;</span>Success Button<span class="tag">&lt;/button&gt;</span>
-
-<span class="comment">&lt;!-- Typography Classes --&gt;</span>
-<span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="val">"text-center"</span><span class="tag">&gt;</span>Centered Text<span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="val">"text-uppercase"</span><span class="tag">&gt;</span>Uppercase Text<span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="val">"text-danger"</span><span class="tag">&gt;</span>Red Text<span class="tag">&lt;/p&gt;</span></code></pre>
-        </div>
-
-        <div class="topic-block">
-            <h3>4. Glyphicons</h3>
-            <p>Icons provided by Bootstrap (Version 3 specifically).</p>
-<pre><code><span class="tag">&lt;p&gt;</span>Search Icon: <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"glyphicon glyphicon-search"</span><span class="tag">&gt;&lt;/span&gt;&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Print Icon: <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"glyphicon glyphicon-print"</span><span class="tag">&gt;&lt;/span&gt;&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>User Icon: <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"glyphicon glyphicon-user"</span><span class="tag">&gt;&lt;/span&gt;&lt;/p&gt;</span></code></pre>
-        </div>
-
-    </div>
-
+    <script>
+        // Simple script to redirect users to WhatsApp to place an order
+        function orderOnWhatsapp(productName) {
+            // Replace this number with your actual WhatsApp business number
+            let phoneNumber = "919876543210"; 
+            let message = `Hi Tanya! I am interested in buying the ${productName} from your website.`;
+            
+            // Create the WhatsApp link
+            let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Open in new tab
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
